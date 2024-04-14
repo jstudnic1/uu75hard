@@ -1,0 +1,25 @@
+{
+  "date": "2024-04-10",
+  "userId": "a20611b47ec8d4a3b23d2285f697eb0a",
+  "tasks": [
+    {
+      "taskId": "t201",
+      "name": "Write Blog Post",
+      "completed": false,
+      "goal": "Draft and publish post about the latest tech trends"
+    },
+    {
+      "taskId": "t202",
+      "name": "Lunch with Project Manager",
+      "completed": true,
+      "goal": "Discuss project timelines over lunch"
+    },
+    {
+      "taskId": "t203",
+      "name": "Update Project Documentation",
+      "completed": true,
+      "goal": "Document all changes made to the project in the last week"
+    }
+  ],
+  "id": "20240410-a20611b47ec8d4a3b23d2285f697eb0a"
+}

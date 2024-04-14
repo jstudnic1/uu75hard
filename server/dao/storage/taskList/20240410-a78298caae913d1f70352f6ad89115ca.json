@@ -1,0 +1,25 @@
+{
+  "date": "2024-04-10",
+  "userId": "a78298caae913d1f70352f6ad89115ca",
+  "tasks": [
+    {
+      "taskId": "t301",
+      "name": "Morning Yoga",
+      "completed": true,
+      "goal": "Complete a 30-minute session"
+    },
+    {
+      "taskId": "t302",
+      "name": "Plan Grocery Shopping",
+      "completed": false,
+      "goal": "Create a list of all items needed for the next two weeks"
+    },
+    {
+      "taskId": "t303",
+      "name": "Study Session",
+      "completed": false,
+      "goal": "Study for the upcoming certification exam"
+    }
+  ],
+  "id": "20240410-a78298caae913d1f70352f6ad89115ca"
+}

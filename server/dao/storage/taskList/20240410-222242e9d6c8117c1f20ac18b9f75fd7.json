@@ -1,0 +1,25 @@
+{
+  "date": "2024-04-10",
+  "userId": "222242e9d6c8117c1f20ac18b9f75fd7",
+  "tasks": [
+    {
+      "taskId": "t101",
+      "name": "Check Email",
+      "completed": false,
+      "goal": "Respond to all new emails received today"
+    },
+    {
+      "taskId": "t102",
+      "name": "Daily Standup Meeting",
+      "completed": true,
+      "goal": "Discuss current projects with the team"
+    },
+    {
+      "taskId": "t103",
+      "name": "Code Review",
+      "completed": false,
+      "goal": "Complete review of pull request #42"
+    }
+  ],
+  "id": "20240410-222242e9d6c8117c1f20ac18b9f75fd7"
+}
