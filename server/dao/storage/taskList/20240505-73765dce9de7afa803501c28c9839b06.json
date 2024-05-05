@@ -1,0 +1,25 @@
+{
+  "date": "2024-05-05",
+  "userId": "73765dce9de7afa803501c28c9839b06",
+  "tasks": [
+    {
+      "name": "swimming",
+      "taskId": "t101",
+      "completed": false,
+      "goal": ""
+    },
+    {
+      "name": "working out",
+      "taskId": "t102",
+      "completed": false,
+      "goal": ""
+    },
+    {
+      "name": "dacing",
+      "taskId": "t103",
+      "completed": false,
+      "goal": ""
+    }
+  ],
+  "id": "20240505-73765dce9de7afa803501c28c9839b06"
+}

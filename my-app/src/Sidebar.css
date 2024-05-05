@@ -1,0 +1,67 @@
+/* Sidebar.css */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  background-color: #1f2937; /* Adjust the color to match your theme */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-title {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-item {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.avatar .bg-neutral-focus {
+  background-color: #374151; /* Adjust the avatar background color */
+}
+
+.avatar .text-neutral-content {
+  color: #d1d5db; /* Adjust the avatar text color */
+}
+
+/* Add responsiveness or other styles as needed */

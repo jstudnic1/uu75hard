@@ -55,10 +55,75 @@ function update(task) {
   }
 }
 
+const add = (dayTaskId, newTask) => {
+  try {
+    const dayTask = get(dayTaskId);
+    if (!dayTask) throw new Error('Task list not found');
 
+    // Generate a unique task ID based on existing tasks
+    const newTaskId = `t${100 + dayTask.tasks.length + 1}`;
+    newTask.taskId = newTaskId;
+    newTask.completed = false; // New tasks default to not completed
+    newTask.goal = newTask.goal || ""; // Ensure goal is set, even if empty
+
+    // Add the new task to the tasks array
+    dayTask.tasks.push(newTask);
+
+    // Save the updated tasks back to the file
+    const filePath = path.join(taskFolderPath, `${dayTask.id}.json`);
+    const fileData = JSON.stringify(dayTask, null, 2);
+    fs.writeFileSync(filePath, fileData, 'utf8');
+
+    return newTask;
+  } catch (error) {
+    console.error("Failed to add new task:", error);
+    throw { code: "failedToAddTask", message: error.message };
+  }
+};
+
+function deleteTask(taskId, taskName) {
+  try {
+      const filePath = path.join(taskFolderPath, `${taskId}.json`);
+      const dayTask = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+      // Filter out the task by name
+      dayTask.tasks = dayTask.tasks.filter(task => task.name !== taskName);
+
+      // Save the updated task list
+      fs.writeFileSync(filePath, JSON.stringify(dayTask, null, 2), 'utf8');
+      return dayTask;
+  } catch (error) {
+      console.error("Failed to delete task:", error);
+      throw { code: "failedToDeleteTask", message: error.message };
+  }
+}
+
+// In task-dao.js
+
+function getTasksForUserAndDate(userId, date) {
+  const filePath = path.join(taskFolderPath, `${date}-${userId}.json`);
+
+  // Check if the file exists
+  const fileExists = fs.existsSync(filePath);
+
+  if (!fileExists) {
+      return null; // Returns null if no tasks file exists for the date
+  }
+
+  try {
+      const fileData = fs.readFileSync(filePath, 'utf8');
+      return JSON.parse(fileData);
+  } catch (error) {
+      console.error("Error reading tasks from file:", filePath, error);
+      throw error;  // Re-throw the error after logging
+  }
+}
 module.exports = {
   create,
   get,
   list,
   update,
+  add,
+  deleteTask,
+  getTasksForUserAndDate
 };

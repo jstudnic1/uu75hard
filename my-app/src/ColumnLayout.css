@@ -1,0 +1,22 @@
+/* src/ColumnLayout.css */
+.registration-form {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* Creates three columns */
+	gap: 20px; /* Adds space between columns */
+  }
+
+  .column-item {
+	display: flex;
+	flex-direction: column;
+  }
+
+  /* Example CSS to control input layouts in ColumnLayout.css or App.css */
+.login-form input {
+	width: 100%; /* Makes each input full-width within its container */
+  }
+
+  .login-form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px; /* Adds space between form elements */
+  }

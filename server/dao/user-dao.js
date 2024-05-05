@@ -5,6 +5,7 @@ const { error } = require("console");
 
 const userFolderPath = path.join(__dirname, "storage", "userList");
 
+
 function create(user) {
   try {
     user.id = crypto.randomBytes(16).toString("hex");
@@ -55,9 +56,28 @@ function update(user) {
   }
 }
 
+function getByUsername(username) {
+  try {
+      const files = fs.readdirSync(userFolderPath);
+      for (let file of files) {
+          const filePath = path.join(userFolderPath, file);
+          const fileData = fs.readFileSync(filePath, "utf8");
+          const user = JSON.parse(fileData);
+          if (user.username === username) {
+              return user;
+          }
+      }
+      return null; // Return null if no user found
+  } catch (error) {
+      console.error("Failed to read user by username:", error);
+      throw { code: "failedToReadUser", message: error.message };
+  }
+}
+
 module.exports = {
   create,
   get,
   list,
   update,
+  getByUsername
 };
