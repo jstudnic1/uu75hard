@@ -1,0 +1,40 @@
+/* taskCards.css */
+.card {
+	background-color: #1f2937; /* Dark background for the card */
+	color: #fff; /* White text color for readability */
+	border-radius: 10px; /* Rounded corners */
+	padding: 20px; /* Padding inside the card */
+	margin-bottom: 10px; /* Space between cards */
+	display: flex; /* Flex layout to align content */
+	justify-content: space-between; /* Space between elements inside the card */
+	align-items: center; /* Align items vertically */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+
+  .card-title {
+	font-size: 1.25rem; /* Larger font size for the title */
+	margin-bottom: 0.5rem; /* Space below the title */
+  }
+
+  .card-body {
+	flex-grow: 1; /* Card body takes up all available space */
+  }
+
+  .card-actions {
+	display: flex;
+	justify-content: flex-end; /* Align actions to the right */
+  }
+
+  .btn {
+	background-color: #2563eb; /* Blue background for buttons */
+	color: white; /* White text color */
+	padding: 10px 15px; /* Padding inside the button */
+	border: none; /* No borders */
+	border-radius: 5px; /* Rounded corners for the button */
+	cursor: pointer; /* Cursor indicates clickable */
+	transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+
+  .btn:hover {
+	background-color: #1d4ed8; /* Slightly darker blue on hover */
+  }
