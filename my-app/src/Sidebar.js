@@ -1,14 +1,21 @@
-// Sidebar.jsx
 import React, { useState } from 'react';
-import { useAuth } from './AuthContext'; // Make sure to import useAuth
+import { useAuth } from './AuthContext';
 import './Sidebar.css';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
-  const { user, logout } = useAuth(); // Get user and logout function from context
+  const { user, logout } = useAuth();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleNavigate = (path, event) => {
+    event.preventDefault();
+	console.log(`Navigating to ${path}`); // Log navigation attempts
+    navigate(path);
   };
 
   return (
@@ -37,21 +44,20 @@ const Sidebar = () => {
           </div>
         )}
       </div>
-            {/* Main menu items */}
-			<ul className="menu p-2">
-        <li className="menu-item active">
+      <ul className="menu p-2">
+        <li className="menu-item" onClick={(e) => handleNavigate('/home', e)}>
           <a className="rounded hover:bg-gray-200 hover:text-gray-800">
             <span className="icon">📘</span> All Habits
           </a>
         </li>
         <li className="menu-title">AREAS</li>
-        <li className="menu-item">
-          <a className="rounded hover:bg-gray-200 hover:text-gray-800">
-            <span className="icon">➕</span> New Area
+		<li className="menu-item" onClick={(e) => handleNavigate('/quotes', e)}>
+		  <a className="rounded hover:bg-gray-200 hover:text-gray-800">
+            <span className="icon">🧘</span> Quotes
           </a>
         </li>
         <li className="menu-title">PREFERENCES</li>
-        <li className="menu-item">
+        <li className="menu-item" onClick={(e) => handleNavigate('/manage-habits', e)}>
           <a className="rounded hover:bg-gray-200 hover:text-gray-800">
             <span className="icon">🔧</span> Manage Habits
           </a>

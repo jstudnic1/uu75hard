@@ -46,3 +46,16 @@
 	overflow-y: auto; /* Adds scroll to content area if content overflows */
   }
 
+/* taskCards.css */
+.btn-finished {
+	background-color: #787c81; /* Grey background for finished button */
+	color: #9ca3af; /* Dark grey text color for finished button */
+	padding: 10px 15px; /* Padding inside the button */
+	border: none; /* No borders */
+	border-radius: 5px; /* Rounded corners for the button */
+	cursor: not-allowed; /* Cursor indicates not clickable */
+  }
+
+  .btn-finished:hover {
+	background-color: #d1d5db; /* Keep the same color on hover */
+  }

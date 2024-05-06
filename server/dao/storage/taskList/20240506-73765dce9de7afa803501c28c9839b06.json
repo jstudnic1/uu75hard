@@ -1,31 +1,37 @@
 {
-  "date": "2024-05-05",
+  "date": "2024-05-06",
   "userId": "73765dce9de7afa803501c28c9839b06",
   "tasks": [
     {
       "name": "swimming",
       "taskId": "t101",
-      "completed": false,
+      "completed": true,
       "goal": ""
     },
     {
       "name": "working out",
       "taskId": "t102",
-      "completed": false,
+      "completed": true,
       "goal": ""
     },
     {
       "name": "dacing",
       "taskId": "t103",
-      "completed": false,
+      "completed": true,
       "goal": ""
     },
     {
-      "name": "dsa",
-      "taskId": "t104",
+      "name": "csac",
+      "taskId": "t105",
+      "completed": true,
+      "goal": ""
+    },
+    {
+      "name": "n ",
+      "taskId": "t106",
       "completed": false,
       "goal": ""
     }
   ],
-  "id": "20240505-73765dce9de7afa803501c28c9839b06"
+  "id": "20240506-73765dce9de7afa803501c28c9839b06"
 }

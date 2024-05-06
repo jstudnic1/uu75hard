@@ -4,7 +4,7 @@ import Sidebar from './Sidebar'; // Import the Sidebar component
 import './taskCards.css';
 
 const HomePage = () => {
-  const { user, addTask } = useAuth();
+  const { user, addTask, markTaskAsDone } = useAuth();
   const [newTaskName, setNewTaskName] = useState('');
 
   const tasks = user && user.tasks ? user.tasks : [];
@@ -16,10 +16,8 @@ const HomePage = () => {
     }
   };
 
-  const handleMarkAsDone = (taskId) => {
-    // This function could call an API to update the task status
-    console.log(`Mark task ${taskId} as done`);
-    // Update the task status in your local state or refetch tasks
+  const handleMarkAsDone = async (taskName) => {
+    await markTaskAsDone(taskName);
   };
 
   return (
@@ -32,7 +30,11 @@ const HomePage = () => {
             {tasks.map((task) => (
               <div key={task.taskId} className="card bg-base-200 shadow-xl p-4 flex justify-between items-center">
                 <span>{task.name} - {task.completed ? 'Done' : 'Pending'}</span>
-                <button className="btn btn-success" onClick={() => handleMarkAsDone(task.taskId)}>Done</button>
+                {task.completed ? (
+                  <button className="btn btn-finished">Finished</button>
+                ) : (
+                  <button className="btn btn-success" onClick={() => handleMarkAsDone(task.name)}>Done</button>
+                )}
               </div>
             ))}
           </div>
@@ -41,6 +43,8 @@ const HomePage = () => {
         )}
         <input
           type="text"
+          id="newTaskName"
+          name="newTaskName"
           value={newTaskName}
           onChange={(e) => setNewTaskName(e.target.value)}
           placeholder="Enter a new task"

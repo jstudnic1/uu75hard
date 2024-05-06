@@ -118,6 +118,36 @@ function getTasksForUserAndDate(userId, date) {
       throw error;  // Re-throw the error after logging
   }
 }
+
+function markTaskAsDone(dayTaskId, taskName) {
+  try {
+    const filePath = path.join(taskFolderPath, `${dayTaskId}.json`);
+    const dayTask = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+    let taskUpdated = false;
+    // Iterate over the tasks and update the completed status if the name matches
+    dayTask.tasks = dayTask.tasks.map(task => {
+      if (task.name === taskName && !task.completed) {
+        task.completed = true; // Set completed to true
+        taskUpdated = true; // Flag that we have updated a task
+      }
+      return task;
+    });
+
+    if (!taskUpdated) {
+      throw new Error("Task not found or already completed");
+    }
+
+    // Write the updated dayTask object back to the file
+    fs.writeFileSync(filePath, JSON.stringify(dayTask, null, 2), 'utf8');
+    return dayTask; // Return the updated task list
+  } catch (error) {
+    console.error("Failed to mark task as done:", error);
+    throw { code: "failedToMarkAsDone", message: error.message };
+  }
+}
+
+
 module.exports = {
   create,
   get,
@@ -125,5 +155,6 @@ module.exports = {
   update,
   add,
   deleteTask,
-  getTasksForUserAndDate
+  getTasksForUserAndDate,
+  markTaskAsDone
 };

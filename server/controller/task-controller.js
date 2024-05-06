@@ -8,6 +8,7 @@ const GetAbl = require("../abl/task/getAbl");
 const AddAbl = require("../abl/task/addAbl");
 const DeleteAbl = require("../abl/task/deleteAbl");
 const LoginAbl = require("../abl/user/loginAbl");
+const MarkedAsDoneAbl = require("../abl/task/markedAsDoneAbl");
 
 router.post("/create", (req, res) => {
   CreateAbl(req, res);
@@ -37,5 +38,8 @@ router.post("/login", (req, res) => {
     LoginAbl(req, res);
 });
 
+router.post("/:id/markAsDone", (req, res) => {
+  MarkedAsDoneAbl(req, res);
+});
 
 module.exports = router;
